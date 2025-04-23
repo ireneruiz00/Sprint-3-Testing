@@ -50,7 +50,7 @@ function moviesAverageByCategory(movies, genre) {
 }
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
+function hoursToMinutes(movies) {
   return movies.map((movie) => {
     const duration = movie.duration
     
@@ -68,8 +68,12 @@ function hoursToMinutes() {
 }
 
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear() {
-  
+function bestFilmOfYear(movies, year) {
+  let moviesOftheYear = movies.filter(movie => movie.year === year)
+
+  let bestScore = Math.max(...moviesOftheYear.map(movie => movie.score))
+
+  return moviesOftheYear.filter(movie => movie.score === bestScore)
 }
 
 
