@@ -31,14 +31,22 @@ function orderAlphabetically(movies) {
 // Exercise 5: Order by year, ascending
 function orderByYear(movies) {
   return movies.toSorted((a, b) => {
+
     return (a.year !== b.year) ? a.year - b.year : a.title.localeCompare(b.title)
+
   })
-  
 }
 
 // Exercise 6: Calculate the average of the movies in a category
-function moviesAverageByCategory() {
+function moviesAverageByCategory(movies, genre) {
+  let genreMovies = movies.filter(movie => movie.genre.includes(genre))
 
+  if (genreMovies.length === 0) return 0
+
+  let totalScore = genreMovies.reduce((total, movie) => {return total + parseFloat(movie.score)}, 0)
+
+  let averageScore = totalScore / genreMovies.length
+  return Number(averageScore.toFixed(2))
 }
 
 // Exercise 7: Modify the duration of movies to minutes

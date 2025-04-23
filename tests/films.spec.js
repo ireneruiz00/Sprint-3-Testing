@@ -293,8 +293,45 @@ describe('Function "orderByYear"', () => {
 // Exercise 6
 // YOUR CODE HERE. Test moviesAverageByCategory()
 describe('Function "moviesAverageByCategory"', () => {
-  it('ADD YOUR CODE IN films.spec.js file', () => {
-    expect(typeof hoursToMinutes).toBe('coffee');
+  it('should be declared', () => {
+    expect(typeof moviesAverageByCategory).toBe('function');
+  });
+
+  it('should return a number', () => {
+    expect(typeof moviesAverageByCategory(movies, 'Crime')).toBe('number');
+  });
+
+  it('should be different from NaN', () => {
+    expect(moviesAverageByCategory(movies, 'Crime')).not.toBeNaN();
+  });
+
+  it(' should return the average score of movies selecting only the director films. With 2 decimals! ', () => {
+    expect(moviesAverageByCategory([
+      {
+        title: 'Paths of Glory',
+        year: 1957,
+        director: 'Stanley Kubrick',
+        duration: '1h 28min',
+        genre: ['Drama', 'War'],
+        score: 8.4
+      },
+      {
+        title: '12 Angry Men',
+        year: 1957,
+        director: 'Sidney Lumet',
+        duration: '1h 36min',
+        genre: ['Crime', 'Drama'],
+        score: 8.9
+      },
+      {
+        title: 'Pulp Fiction',
+        year: 1994,
+        director: 'Quentin Tarantino',
+        duration: '2h 34min',
+        genre: ['Crime', 'Drama'],
+        score: 8.9
+      }
+    ], 'Crime')).toBe(8.9);
   });
 });
 
